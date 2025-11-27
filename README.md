@@ -1,3 +1,7 @@
+# QIS Step 1 — Data Pipeline & Value Strategy
+===
+
+
 This step focuses on building a fully reproducible data engineering pipeline for quantitative investment research. The output of this workflow becomes the foundation for all future signal construction, factor models, and backtesting.
 
 1. Load & Clean Ticker Inputs
