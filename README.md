@@ -1,64 +1,35 @@
-# QIS Step 1 — Data Pipeline & Value Strategy
+# Quantitative Investment Strategies Step 1 — Data Pipeline & Value Strategy
 
-
-## This step focuses on building a fully reproducible data pipeline for quantitative investment research. The output of this workflow becomes the foundation for all future signal construction, factor models, and backtesting.
+## This step focuses on building a fully reproducible data pipeline for quantitative investment research. The output of this programs becomes the foundation for all future signal construction, portfolios, and backtesting.
 
 ### 1. Load & Clean Ticker Inputs
-- Read raw tickers from CSV or a user-provided list.
-- Standardize formats (e.g., convert BRK.B → BRK-B for Yahoo Finance).
-- Remove duplicates and sanitize symbols.
+- Reading tickers from the CSV which contains all SP500 stocks, clean listing formats and standardize. 
 
 ### 2. Validate Tickers Using Real Price History
-- Query each ticker individually from Yahoo Finance.
-- Reject any ticker that returns:
-- Empty DataFrames,
-- Missing or partial histories,
-- Non-trading assets or delisted tickers.
-- Produce a clean, validated list for all downstream steps.
+- Querying each ticker using the yahoo finance api. Remove of all tickers which present incomplete or strange to create a clean final list of tickers. 
 
 ### 3. Robust Price Downloader (OHLCV Engine)
-- Download Open, High, Low, Close, Adj Close, Volume using retry logic.
-- Automatically handle: API failures, Incomplete downloads, Tickers that stall or rate-limit.
-- Store results in tidy DataFrames with clear naming conventions.
+- Downloading OHLCV data using yf api, and store all of the data in neat dataframes with clear naming conventions. 
 
 ### 4. Build Synchronized Multi-Asset Panels
-- Align all tickers on the same trading calendar.
-- Forward-fill or drop based on validation rules.
-- Produce wide-format parquet panels for each field:
-          open_panel.parquet
-          high_panel.parquet
-          low_panel.parquet
-          close_panel.parquet
-          adj_close_panel.parquet
-          volume_panel.parquet
+- Aligning tickers on the same calender date to produce cross-sections. If data is missing for a stock at a particular date, it is not filled. The Open, High, Low, Close and Volume are saved as in different parquet files to compress size. 
 
 ### 5. Create Debug & Transparency Tools
-Utilities include:
-- Panel shape viewer
-- Date-range inspector
-- Missing-data diagnostics
-- Ticker-level history preview
-- Logging layer for all download attempts
-These tools ensure the dataset remains trustworthy and easy to validate.
+- Building in utilities for viewing panel shape size, date-range inspector, missing-data diagnostics and ticker-level history preview. These built tools make it easier to obtain information about the dataset. 
 
 ### 6. Compute Value Scores & Signals
-- Calculate value metrics (e.g., Earnings Yield) from fundamentals.
-- Rank stocks cross-sectionally by percentile.
-- Assign long/short signals based on top and bottom quantiles.
-- Save output in tidy, long-format DataFrames.
+- Calculating value metrics (e.g., Earnings Yield) from fundamentals
+- Ranking stocks cross-sectionally by percentile
+- Assign long/short signals based on top and bottom quantiles
+- Save output in tidy, long-format DataFrames
 
 ### 7. Backtest the Strategy
-- Merge price returns with signals.
-- Compute:  
+- Merging price returns with signals.
+- Computing:  
       Daily portfolio returns
       Cumulative returns
       Equal-weight long/short performance
-      Export clean results for review.
+      Export clean results for review
 
 ### 8. Export Final Research Outputs
-- The pipeline exports all results into an Excel workbook:
-- Sheets include:
-      Signals (3,000+ rows)
-      Backtest Results (daily & cumulative returns)
-      Performance Summary (Sharpe, Vol, CAGR, MDD)
-      All reports are formatted for non-technical users.
+- The pipeline exports all results into an Excel workbook: Individual day signals (3000+ rows), backtest summary (daily and cumulative returns), performance summary (Sharpe, Volume, CAGR, Max Drawdown)
