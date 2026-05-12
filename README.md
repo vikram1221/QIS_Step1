@@ -27,10 +27,10 @@
 ### 7. Backtest the Strategy
 - Merging price returns with signals.
 - Computing:  
-      Daily portfolio returns
-      Cumulative returns
-      Equal-weight long/short performance
-      Export clean results for review
+      - Daily portfolio returns
+      - Cumulative returns
+      - Equal-weight long/short performance
+      - Export clean results for review
 
 ### 8. Export Final Research Outputs
 - The pipeline exports all results into an Excel workbook: Individual day signals (3000+ rows), backtest summary (cumulative returns), performance summary (Sharpe, Volume, CAGR, Max Drawdown)
