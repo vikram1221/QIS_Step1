@@ -19,18 +19,14 @@
 - Building in utilities for viewing panel shape size, date-range inspector, missing-data diagnostics and ticker-level history preview. These built tools make it easier to obtain information about the dataset. 
 
 ### 6. Compute Value Scores & Signals
-- Calculating value metrics (e.g., Earnings Yield) from fundamentals
-- Ranking stocks cross-sectionally by percentile
-- Assigning long/short signals based on top and bottom quantiles
-- Saving output in tidy, long-format DataFrames
+- Calculating value metrics (e.g., Earnings Yield) from fundamentals.
+- Ranking stocks cross-sectionally by percentile.
+- Assigning long/short signals based on top and bottom quantiles.
+- Saving output in tidy, long-format DataFrames.
 
 ### 7. Backtest the Strategy
 - Merging price returns with signals.
-- Computing:  
-      - Daily portfolio returns
-      - Cumulative returns
-      - Equal-weight long/short performance
-      - Export clean results for review
-
+- Computing: daily portfolio returns, cumulative returns, Equal-weight long/short performance.
+  
 ### 8. Export Final Research Outputs
-- The pipeline exports all results into an Excel workbook: Individual day signals (3000+ rows), backtest summary (cumulative returns), performance summary (Sharpe, Volume, CAGR, Max Drawdown)
+- Exporting all results into an Excel workbook: Individual day signals (3000+ rows), backtest summary (cumulative returns), performance summary (Sharpe, Volume, CAGR, Max Drawdown).
