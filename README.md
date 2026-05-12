@@ -2,6 +2,7 @@
 
 ## This step focuses on building a fully reproducible data pipeline for quantitative investment research. The output of this programs becomes the foundation for all future signal construction, portfolios, and backtesting.
 
+
 ### 1. Load & Clean Ticker Inputs
 - Reading tickers from the CSV which contains all SP500 stocks, clean listing formats and standardize. 
 
