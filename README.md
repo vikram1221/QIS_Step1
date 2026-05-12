@@ -20,8 +20,8 @@
 ### 6. Compute Value Scores & Signals
 - Calculating value metrics (e.g., Earnings Yield) from fundamentals
 - Ranking stocks cross-sectionally by percentile
-- Assign long/short signals based on top and bottom quantiles
-- Save output in tidy, long-format DataFrames
+- Assigning long/short signals based on top and bottom quantiles
+- Saving output in tidy, long-format DataFrames
 
 ### 7. Backtest the Strategy
 - Merging price returns with signals.
